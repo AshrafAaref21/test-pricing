@@ -37,12 +37,12 @@ if product_bx == 'Scotch':
         index_col=0
     )
 
-    # Reading latest Scotch Margin Profit
-    df_margin = pd.read_excel(
-        r'data.xlsx',
-        sheet_name='Margin',
-        index_col=0
-    )
+    # # Reading latest Scotch Margin Profit
+    # df_margin = pd.read_excel(
+    #     r'data.xlsx',
+    #     sheet_name='Margin',
+    #     index_col=0
+    # )
 
     # Reading latest Shrink Data
     df_shrink = pd.read_excel(
