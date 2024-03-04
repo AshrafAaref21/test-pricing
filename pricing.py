@@ -149,16 +149,25 @@ if product_bx == 'Scotch':
                     production = (length * width/100) * \
                         n_rollers * df_production.iloc[8, 1]
 
+        if width <= 2.4:
+            sales_cost_ratio = 0.1
+        elif width > 2.4 and width <= 4.5:
+            sales_cost_ratio = 0.02
+        elif width > 4.5 and width <= 4.8:
+            sales_cost_ratio = 0.03
+        else:
+            sales_cost_ratio = 0.05
+
         if n_rollers >= 6:
             TOTAL_COST = meter_price * \
                 (length*width/100)*n_rollers + \
                 1.15*production + n_rollers*(shrink + core) + 23
-            Total_Price = TOTAL_COST * 1.03
+            Total_Price = TOTAL_COST * (1+sales_cost_ratio)
         else:
             TOTAL_COST = meter_price * \
                 (length*width/100)*n_rollers + \
                 1.15*production + n_rollers*(shrink + core)
-            Total_Price = TOTAL_COST * 1.03
+            Total_Price = TOTAL_COST * (1+sales_cost_ratio)
 
         btn = st.button('Calculate', type="primary")
         if btn:
@@ -253,17 +262,26 @@ if product_bx == 'Scotch':
                     df_production.iloc[0, 3]
                #  st.write('ya:falsec4')
 
+        if width <= 2.4:
+            sales_cost_ratio = 0.1
+        elif width > 2.4 and width <= 4.5:
+            sales_cost_ratio = 0.02
+        elif width > 4.5 and width <= 4.8:
+            sales_cost_ratio = 0.03
+        else:
+            sales_cost_ratio = 0.05
+
         # Total Cost Formula
         if n_rollers >= 6:
             TOTAL_COST = meter_price * \
                 (length*width/100)*n_rollers + \
                 1.15*production + n_rollers*(shrink + core) + 23
-            Total_Price = TOTAL_COST * 1.03
+            Total_Price = TOTAL_COST * (1 + sales_cost_ratio)
         else:
             TOTAL_COST = meter_price * \
                 (length*width/100)*n_rollers + \
                 1.15*production + n_rollers*(shrink + core)
-            Total_Price = TOTAL_COST * 1.03
+            Total_Price = TOTAL_COST * (1 + sales_cost_ratio)
 
         # Create the cost estimate button
         btn = st.button('Calculate', type="primary")
