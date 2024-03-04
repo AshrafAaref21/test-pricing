@@ -179,7 +179,10 @@ if product_bx == 'Scotch':
             #          shrink=>{shrink}\n
             #          core=>{core}\n
             #          production=>{production}\n""")
-            st.success(int(np.ceil(Total_Price/5)*5))
+            if Total_Price % 5 > 2:
+                st.success(int(np.ceil(Total_Price/5)*5))
+            else:
+                st.success(int(np.floor(Total_Price/5)*5))
             # st.success(Total_Price)
             st.snow()
 
@@ -297,6 +300,9 @@ if product_bx == 'Scotch':
             # # st.write(df_production.iloc[2, 2])
             # st.write(df_production.iloc[2, 2] *
             #          length * width * n_rollers / 100)
-            st.success(int(np.ceil(Total_Price/5)*5))
+            if Total_Price % 5 > 2:
+                st.success(int(np.ceil(Total_Price/5)*5))
+            else:
+                st.success(int(np.floor(Total_Price/5)*5))
             # st.success(Total_Price)
             st.snow()
