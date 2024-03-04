@@ -37,12 +37,12 @@ if product_bx == 'Scotch':
         index_col=0
     )
 
-    # # Reading latest Scotch Margin Profit
-    # df_margin = pd.read_excel(
-    #     r'data.xlsx',
-    #     sheet_name='Margin',
-    #     index_col=0
-    # )
+    # Reading latest Scotch Margin Profit
+    df_margin = pd.read_excel(
+        r'data.xlsx',
+        sheet_name='Margin',
+        index_col=0
+    )
 
     # Reading latest Shrink Data
     df_shrink = pd.read_excel(
@@ -158,11 +158,13 @@ if product_bx == 'Scotch':
         if n_rollers >= 6:
             TOTAL_COST = meter_price * \
                 (length*width/100)*n_rollers + \
-                production + n_rollers*(shrink + core) + 20
+                1.15*production + n_rollers*(shrink + core) + 23
+            Total_Price = TOTAL_COST * 1.03
         else:
             TOTAL_COST = meter_price * \
                 (length*width/100)*n_rollers + \
-                production + n_rollers*(shrink + core)
+                1.15*production + n_rollers*(shrink + core)
+            Total_Price = TOTAL_COST * 1.03
 
         btn = st.button('Calculate', type="primary")
         if btn:
@@ -174,8 +176,8 @@ if product_bx == 'Scotch':
             #          shrink=>{shrink}\n
             #          core=>{core}\n
             #          production=>{production}\n""")
-            st.success(int(np.ceil(TOTAL_COST/5)*5))
-            st.success(TOTAL_COST)
+            st.success(int(np.ceil(Total_Price/5)*5))
+            # st.success(Total_Price)
             st.snow()
 
     # Doku And Laser
@@ -261,11 +263,13 @@ if product_bx == 'Scotch':
         if n_rollers >= 6:
             TOTAL_COST = meter_price * \
                 (length*width/100)*n_rollers + \
-                production + n_rollers*(shrink + core) + 20
+                1.15*production + n_rollers*(shrink + core) + 23
+            Total_Price = TOTAL_COST * 1.03
         else:
             TOTAL_COST = meter_price * \
                 (length*width/100)*n_rollers + \
-                production + n_rollers*(shrink + core)
+                1.15*production + n_rollers*(shrink + core)
+            Total_Price = TOTAL_COST * 1.03
 
         # Create the cost estimate button
         btn = st.button('Calculate', type="primary")
@@ -281,6 +285,6 @@ if product_bx == 'Scotch':
             # # st.write(df_production.iloc[2, 2])
             # st.write(df_production.iloc[2, 2] *
             #          length * width * n_rollers / 100)
-            st.success(int(np.ceil(TOTAL_COST/5)*5))
-            st.success(TOTAL_COST)
+            st.success(int(np.ceil(Total_Price/5)*5))
+            # st.success(Total_Price)
             st.snow()
