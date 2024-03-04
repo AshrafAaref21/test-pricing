@@ -76,7 +76,7 @@ if product_bx == 'Scotch':
             'Micron', min_value=30, max_value=60, value=45, step=1)
         width = st.selectbox('Choose The Width in CM (العرض)', df_shrink.index)
         length = st.number_input(
-            'Length in Meter (الطول)', min_value=0.0, value=15.0)
+            'Length in Meter (الطول)', min_value=1.0, value=15.0)
         n_rollers = st.number_input(
             'Rollers Quantity (عدد البكر في الكرتونة)', min_value=1, step=1)
 
@@ -188,7 +188,7 @@ if product_bx == 'Scotch':
         else:
             width = st.selectbox('Choose The Width in CM (العرض)', [
                                  1.2, 2.3, 4.5, 4.8])
-        length = st.number_input('Length in Meter (الطول)', min_value=0)
+        length = st.number_input('Length in Meter (الطول)', min_value=1)
         n_rollers = st.number_input(
             'Rollers Quantity (عدد البكر في الكرتونة)', min_value=1, step=1)
 
